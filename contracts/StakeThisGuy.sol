@@ -40,9 +40,8 @@ contract StakeThisGuy is ERC20 {
 
     function claim() public {
         require(staked[msg.sender] > 0, "staked is <= 0");
-        uint256 secondsStaked = block.timestamp -
-            stakedFromTimeStamp[msg.sender];
-        uint256 rewards = (staked[msg.sender] * secondsStaked) / 3.154e7;
+        uint256 duration = block.timestamp - stakedFromTimeStamp[msg.sender];
+        uint256 rewards = (staked[msg.sender] * duration) / 3.154e7;
         _mint(msg.sender, rewards);
         stakedFromTimeStamp[msg.sender] = block.timestamp;
     }
