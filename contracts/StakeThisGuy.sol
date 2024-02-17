@@ -5,11 +5,11 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 error AMOUNT_IS_LESS_THAN_OR_EQUAL_TO_ZERO();
 
-contract FixedStaking is ERC20 {
+contract StakeThisGuy is ERC20 {
     mapping(address => uint256) public staked;
     mapping(address => uint256) public stakedFromTimeStamp;
 
-    constructor(uint256 _amountToMint) ERC20("FixedStaking", "FXT") {
+    constructor(uint256 _amountToMint) ERC20("StakeThisGuy", "STG") {
         _mint(msg.sender, _amountToMint);
     }
 
